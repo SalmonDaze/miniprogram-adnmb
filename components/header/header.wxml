@@ -1,0 +1,20 @@
+<i-row i-class='header'>
+  <i-col span="2" i-class='side_nav_btn' bindtap='toggleLeft'>
+    <i-icon type='keyboard' size='28'></i-icon>
+  </i-col>
+  <i-col span="20" i-class='header_title'>
+    <view class='header_container'>
+      <i-drawer mode='left' visible='{{showLeft}}' mask-closable='true'  bind:close="toggleLeft">
+          <scroll-view class='category_list' scroll-y style="height: 200px;" scroll-into-view="{{toView}}" style="height:{{scrollHeight}};">
+              <block wx:for='{{categoryArr}}' wx:key='{{item.name}}'>
+                <view class='categoryInfo'>{{item.name}}</view>
+              </block>
+          </scroll-view>
+      </i-drawer>  
+      <text class='header_title'>{{header_title}}</text>
+    </view>
+  </i-col>
+  <i-col span="2" i-class='side_nav2'>
+    <i-icon type='unfold' size='28'></i-icon>
+  </i-col>
+</i-row>

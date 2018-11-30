@@ -14,6 +14,25 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+let api_request = function(url, data, success_callback, fail_callback){
+  wx.request({
+    url: url,
+    data: data,
+    method:'POST',
+    header:{
+      'content-type': 'application/x-www-form-urlencoded',
+      'X-Requested-With': 'XMLHttpRequest',
+    },
+    success:(res)=>{
+      success_callback(res)
+    },
+    fail: (res)=>{
+      fail_callback(res)
+    }
+  })
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  api_request: api_request
 }
