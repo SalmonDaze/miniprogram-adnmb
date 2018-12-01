@@ -12,7 +12,7 @@ Component({
     showLeft:false,
     category:{},
     categoryArr:[],
-    scrollHeight:'1000px',
+    scrollHeight:app.globalData.scrollHeight,
   },
   methods:{
     toggleLeft(){
@@ -22,19 +22,10 @@ Component({
     }
   },
     attached(){
-      let that = this
-      wx.getSystemInfo({
-        success:function(res){
-          that.setData({
-            scrollHeight: res.windowHeight + 'px'
-          })
-        }
-      })
       api_request(`${app.globalData.api.baseUrl}${app.globalData.api.categoryList}`, {}, (res)=>{
         this.setData({
           category: res.data
         })
-        console.log(this.data.category)
         let Arr = []
         for(let key in this.data.category){
           for(let keys in this.data.category[key].forums){

@@ -1,0 +1,18 @@
+<view class='category_container'>
+  <block wx:for='{{strand}}' wx:key='{{item.id}}'>
+    <view class='strand_container'>
+      <view class='strand_info'>
+        <text class='strand_po' style="color:{{ item.admin == true ? 'red' : 'rgb(82, 82, 82)'}}">{{item.userid}}</text>
+        <text class='strand_id'>id.{{item.id}}</text>
+        <text class='strand_time'>{{item.now}}</text>
+      </view>
+      <view class='strand_content'>
+        <import src="../../wxParse/wxParse.wxml"/>
+        <template is='wxParse' data="{{wxParseData:item.content}}"></template>
+      </view>
+      <block wx:for="{{_strand}}" wx:key="">
+        回复{{index}}:<template is="wxParse" data="{{wxParseData:item}}"/>
+      </block>
+    </view>
+  </block>
+</view>

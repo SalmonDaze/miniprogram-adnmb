@@ -2,4 +2,5 @@
 
 <view class="container">
   <header header_title='时间线'></header>
+  <category></category>
 </view>

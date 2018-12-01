@@ -14,10 +14,9 @@ Page({
     })
   },
   onLoad: function () {
-    api_request(`${app.globalData.api.baseUrl}${app.globalData.api.timeLine}`,{},function(res){console.log(res)})
+    api_request(`${app.globalData.api.baseUrl}${app.globalData.api.timeLine}`,{},function(res){})
   },
   getUserInfo: function(e) {
-    console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
