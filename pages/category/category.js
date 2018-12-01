@@ -10,6 +10,8 @@ function formatTime(time){
   return moment(date,'YYYYMMDD').fromNow()
 }
 
+let list = []
+
 Component({
   properties:{
     forum_id:{
@@ -22,30 +24,32 @@ Component({
     }
   },
   methods:{
-
+    getData:function(){
+      let that = this
+      api_request(`${app.globalData.api.baseUrl}${app.globalData.api.forumUrl}`,
+      {
+        page: that.data.page,
+        id: that.data.forum_id
+      },
+      function (res) {
+        for (let value in res.data) {
+          res.data[value].now = formatTime(res.data[value].now)
+          res.data[value].content = wxParse.wxParse('content', 'html', res.data[value].content, that, null).nodes
+          list.push(res.data[value])
+        }
+        that.setData({
+          strand: list
+        })
+        that.triggerEvent('loaded')
+      },
+      
+    )}
   },
   data:{
-    strand:[]
+    strand:[],
   },
   attached(){
-    let that = this
-    api_request(`${app.globalData.api.baseUrl}${app.globalData.api.forumUrl}`, 
-    { 
-      page:that.data.page,
-      id:that.data.forum_id
-      },
-     function (res) {
-       let list = []
-       for(let value in res.data){
-         res.data[value].now = formatTime(res.data[value].now)
-         res.data[value].content = wxParse.wxParse('content', 'html', res.data[value].content, that, null).nodes
-         list.push(res.data[value])
-       }
-       console.log(list)
-       that.setData({
-         strand: list
-       })
-     }
-     )
-  }
+    this.getData()
+  },
+  
 })

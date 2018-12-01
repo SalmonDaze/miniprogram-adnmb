@@ -35,6 +35,8 @@ Component({
         this.setData({
           categoryArr: Arr
         })
+        this.triggerEvent('ss', res.data)
       },)
+      
     }
 })

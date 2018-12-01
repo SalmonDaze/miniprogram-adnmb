@@ -1,6 +1,7 @@
 {
   "usingComponents" : {
     "header" : "../../components/header/header",
-    "category" : "../category/category"
+    "category" : "../category/category",
+    "i-spin" : "../../dist/spin/index"
   }
 }
