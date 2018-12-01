@@ -21,6 +21,10 @@
   height:100%;
 }
 .categoryInfo{
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  font-size:0.95rem;
+}
+.categoryInfo:first-child{
+  margin-top: 15px;
   font-size:0.95rem;
 }
