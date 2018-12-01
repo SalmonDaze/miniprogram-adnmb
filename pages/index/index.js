@@ -14,7 +14,7 @@ Page({
     })
   },
   onLoad: function () {
-    api_request('http://adnmb1.com/Api/timeline',{},function(res){console.log(res)})
+    api_request(`${app.globalData.api.baseUrl}${app.globalData.api.timeLine}`,{},function(res){console.log(res)})
   },
   getUserInfo: function(e) {
     console.log(e)

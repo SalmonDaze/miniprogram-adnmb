@@ -1,4 +1,5 @@
 const api_request = require('../../utils/util.js').api_request
+const app = getApp()
 
 Component({
   properties:{
@@ -29,7 +30,7 @@ Component({
           })
         }
       })
-      api_request('http://adnmb1.com/Api/getForumList?appid=wechatapp', {}, (res)=>{
+      api_request(`${app.globalData.api.baseUrl}${app.globalData.api.categoryList}`, {}, (res)=>{
         this.setData({
           category: res.data
         })
