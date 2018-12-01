@@ -1,3 +1,4 @@
+<import src="../../wxParse/wxParse.wxml"/>
 <view class='category_container'>
   <block wx:for='{{strand}}' wx:key='{{item.id}}'>
     <view class='strand_container'>
@@ -7,12 +8,8 @@
         <text class='strand_time'>{{item.now}}</text>
       </view>
       <view class='strand_content'>
-        <import src="../../wxParse/wxParse.wxml"/>
-        <template is='wxParse' data="{{wxParseData:item.content}}"></template>
+        <template is='wxParse' data="{{wxParseData: item.content}}"></template>
       </view>
-      <block wx:for="{{_strand}}" wx:key="">
-        回复{{index}}:<template is="wxParse" data="{{wxParseData:item}}"/>
-      </block>
     </view>
   </block>
 </view>

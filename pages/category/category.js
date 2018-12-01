@@ -36,13 +36,12 @@ Component({
       },
      function (res) {
        let list = []
-       let ss = []
        for(let value in res.data){
          res.data[value].now = formatTime(res.data[value].now)
+         res.data[value].content = wxParse.wxParse('content', 'html', res.data[value].content, that, null).nodes
          list.push(res.data[value])
-         ss.push(res.data[value].content)
        }
-       wxParse.wxParseTemArray('_strand', 'ssr', ss.length, that)
+       console.log(list)
        that.setData({
          strand: list
        })
