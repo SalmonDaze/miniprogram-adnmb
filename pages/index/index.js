@@ -29,8 +29,16 @@ Page({
   },
   switchLoad:function () {
     this.setData({
-      isLoading : !this.data.isLoading
+      isLoading : false
     })
+  },
+  change:function(info){
+    console.log(info.detail.currentTarget.dataset.id)
+    this.setData({
+      forum_id: info.detail.currentTarget.dataset.id,
+      bktitle:info.detail._relatedInfo.anchorTargetText
+    })
+    this.selectComponent("#list").changeCategory()
   },
   getTitle:function(res){
     let that = this
@@ -56,7 +64,7 @@ Page({
           that.selectComponent("#list").getData();
           debounce = false
           setTimeout(()=>{
-            debounce = !debounce
+            debounce = true
           }, 1000)
         }
       }

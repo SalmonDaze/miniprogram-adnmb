@@ -7,7 +7,7 @@
       <i-drawer mode='left' visible='{{showLeft}}' mask-closable='true'  bind:close="toggleLeft">
           <scroll-view class='category_list' scroll-y style="height: 200px;" scroll-into-view="{{toView}}" style="height:{{scrollHeight}};">
               <block wx:for='{{categoryArr}}' wx:key='{{item.name}}'>
-                <view class='categoryInfo'>{{item.name}}</view>
+                <view class='categoryInfo' data-id='{{item.id}}' bindtap='switchCategory'>{{item.name}}</view>
               </block>
           </scroll-view>
       </i-drawer>  

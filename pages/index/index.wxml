@@ -1,8 +1,7 @@
 <!--index.wxml-->
 
 <view class="container">
-  <header header_title='{{bktitle}}' bind:ss='getTitle'></header>
+  <header header_title='{{bktitle}}' bind:ss='getTitle' bind:changeCategory='change'></header>
   <category forum_id='{{forum_id}}' page='{{page}}' bind:loaded='switchLoad' id="list"></category>
   <i-spin size='large' fix wx:if="{{ isLoading }}"></i-spin>
-
 </view>

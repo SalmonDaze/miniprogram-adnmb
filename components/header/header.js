@@ -19,6 +19,12 @@ Component({
       this.setData({
         showLeft: !this.data.showLeft,
       })
+    },
+    switchCategory(e){
+      this.setData({
+        showLeft: false
+      })
+      this.triggerEvent('changeCategory', e)
     }
   },
     attached(){
@@ -37,6 +43,5 @@ Component({
         })
         this.triggerEvent('ss', res.data)
       },)
-      
-    }
+    },
 })

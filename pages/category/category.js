@@ -42,7 +42,26 @@ Component({
         })
         that.triggerEvent('loaded')
       },
-      
+    )},
+    changeCategory:function(id){
+      let that = this
+      api_request(`${app.globalData.api.baseUrl}${app.globalData.api.forumUrl}`,
+      {
+        page: that.data.page,
+        id: that.data.forum_id
+      },
+      function (res) {
+        list = []
+        for (let value in res.data) {
+          res.data[value].now = formatTime(res.data[value].now)
+          res.data[value].content = wxParse.wxParse('content', 'html', res.data[value].content, that, null).nodes
+          list.push(res.data[value])
+        }
+        that.setData({
+          strand: list
+        })
+        that.triggerEvent('loaded')
+      }
     )}
   },
   data:{
