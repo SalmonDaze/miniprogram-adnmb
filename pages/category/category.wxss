@@ -1,5 +1,5 @@
 .category_container{
-  background: rgb(247, 228, 236);
+  background: rgb(253, 228, 239);
   padding-top:10px;
 }
 .strand_container{
