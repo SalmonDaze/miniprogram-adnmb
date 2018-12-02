@@ -2,6 +2,7 @@
   "usingComponents" : {
     "header" : "../../components/header/header",
     "category" : "../category/category",
-    "i-spin" : "../../dist/spin/index"
+    "i-spin" : "../../dist/spin/index",
+    "i-load-more": "../../dist/load-more/index"
   }
 }
