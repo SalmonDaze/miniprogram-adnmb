@@ -33,12 +33,14 @@ Page({
     })
   },
   change:function(info){
-    console.log(info.detail.currentTarget.dataset.id)
     this.setData({
       forum_id: info.detail.currentTarget.dataset.id,
       bktitle:info.detail._relatedInfo.anchorTargetText
     })
     this.selectComponent("#list").changeCategory()
+    this.setData({
+      isLoading: true
+    })
   },
   getTitle:function(res){
     let that = this

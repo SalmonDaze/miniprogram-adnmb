@@ -13,6 +13,7 @@ Component({
     category:{},
     categoryArr:[],
     scrollHeight:app.globalData.scrollHeight,
+    currentbk : app.globalData.status.currentPlate
   },
   methods:{
     toggleLeft(){
@@ -25,6 +26,11 @@ Component({
         showLeft: false
       })
       this.triggerEvent('changeCategory', e)
+      app.globalData.status.currentPlate = e.currentTarget.dataset.id
+      this.setData({
+        currentbk: app.globalData.status.currentPlate
+      })
+      console.log(app.globalData.status)
     }
   },
     attached(){

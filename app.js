@@ -17,5 +17,8 @@ App({
       forumUrl:'Api/showf?appid=wechatapp',
     },
     scrollHeight:'',
+    status:{
+      currentPlate: 4
+    }
   }
 })
